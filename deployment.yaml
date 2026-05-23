@@ -31,9 +31,9 @@ spec:
             - name: APP_NAMESPACE
               value: "argocd-learnning01"
             - name: DEPLOYMENT_NAME
-              value: "gitops-demo"
+              value: "learning01"
             - name: ARGOCD_APP_NAME
-              value: "gitops-demo"
+              value: "learning01"
             - name: ARGOCD_NAMESPACE
               value: "argocd"
           resources:

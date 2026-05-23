@@ -23,8 +23,8 @@ spec:
       serviceAccountName: gitops-dashboard
       containers:
         - name: dashboard
-          image: gitops-dashboard:latest
-          imagePullPolicy: Never
+          image: nginx:1.25-alpine
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:

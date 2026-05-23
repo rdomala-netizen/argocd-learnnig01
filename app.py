@@ -13,8 +13,8 @@ TOKEN_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/token"
 CA_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
 
 NAMESPACE = os.environ.get("APP_NAMESPACE", "argocd-learnning01")
-DEPLOYMENT_NAME = os.environ.get("DEPLOYMENT_NAME", "gitops-demo")
-ARGOCD_APP_NAME = os.environ.get("ARGOCD_APP_NAME", "gitops-demo")
+DEPLOYMENT_NAME = os.environ.get("DEPLOYMENT_NAME", "")
+ARGOCD_APP_NAME = os.environ.get("ARGOCD_APP_NAME", "")
 ARGOCD_NAMESPACE = os.environ.get("ARGOCD_NAMESPACE", "argocd")
 
 

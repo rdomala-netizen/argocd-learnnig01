@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitops-demo
+  name: 
   namespace: argocd-learnning01
   labels:
-    app: gitops-demo
+    app: 
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: gitops-demo
+      app: 
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: gitops-demo
+        app: 
     spec:
       serviceAccountName: gitops-dashboard
       containers:
@@ -31,9 +31,9 @@ spec:
             - name: APP_NAMESPACE
               value: "argocd-learnning01"
             - name: DEPLOYMENT_NAME
-              value: "gitops-demo"
+              value: ""
             - name: ARGOCD_APP_NAME
-              value: "gitops-demo"
+              value: ""
             - name: ARGOCD_NAMESPACE
               value: "argocd"
           resources:

@@ -38,7 +38,7 @@ The deployment uses `imagePullPolicy: Never`, so Kubernetes will use this local 
 ### Step 2 — Delete the old ArgoCD application (if exists)
 
 ```bash
-kubectl delete application gitops-demo -n argocd --ignore-not-found
+kubectl delete application  -n argocd --ignore-not-found
 ```
 
 ### Step 3 — Push the new k8s manifests to your Git repo
@@ -75,7 +75,7 @@ kubectl apply -f argocd-application.yaml
 ### Step 5 — Access the dashboard
 
 ```bash
-minikube service gitops-demo -n argocd-learnning01
+minikube service  -n argocd-learnning01
 ```
 
 ---
@@ -97,7 +97,7 @@ Watch the dashboard — within a few minutes, the replica count will update from
 ### Test 2: Manually scale (creates OutOfSync)
 
 ```bash
-kubectl scale deployment gitops-demo -n argocd-learnning01 --replicas=3
+kubectl scale deployment  -n argocd-learnning01 --replicas=3
 ```
 
 The dashboard will briefly show 3 replicas and "OutOfSync" status. Then ArgoCD's self-heal will revert it back to what Git says (2 or 5), and the dashboard updates again.
@@ -105,7 +105,7 @@ The dashboard will briefly show 3 replicas and "OutOfSync" status. Then ArgoCD's
 ### Test 3: Force sync
 
 ```bash
-argocd app sync gitops-demo
+argocd app sync 
 ```
 
 ---
@@ -120,7 +120,7 @@ cd app
 docker build -t gitops-dashboard:latest .
 
 # Restart the pods to pick up the new image
-kubectl rollout restart deployment gitops-demo -n argocd-learnning01
+kubectl rollout restart deployment  -n argocd-learnning01
 ```
 
 ---

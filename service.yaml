@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: 
+    app: argocd-learnning01
   ports:
     - port: 80
       targetPort: 8080

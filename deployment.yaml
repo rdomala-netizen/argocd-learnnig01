@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitops-demo 
+  name: gitops-demo
   namespace: argocd-learnning01
   labels:
-    app: 
+    app: gitops-demo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: 
+      app: gitops-demo
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,34 +18,24 @@ spec:
   template:
     metadata:
       labels:
-        app: 
+        app: gitops-demo
     spec:
-      serviceAccountName: gitops-dashboard
       containers:
-        - name: dashboard
+        - name: nginx
           image: nginx:1.25-alpine
-          imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
-          env:
-            - name: APP_NAMESPACE
-              value: "argocd-learnning01"
-            - name: DEPLOYMENT_NAME
-              value: ""
-            - name: ARGOCD_APP_NAME
-              value: ""
-            - name: ARGOCD_NAMESPACE
-              value: "argocd"
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
           resources:
             requests:
               cpu: 50m
               memory: 64Mi
             limits:
-              cpu: 200m
-              memory: 256Mi
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 8080
-            initialDelaySeconds: 5
-            periodSeconds: 10
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: html
+          configMap:
+            name: gitops-demo-html

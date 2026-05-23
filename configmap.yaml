@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argocd-learnning01-html
+  name: gitops-demo-html
   namespace: argocd-learnning01
 data:
   index.html: |

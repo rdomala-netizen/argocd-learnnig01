@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 
+  name: gitops-demo 
   namespace: argocd-learnning01
   labels:
     app: 
